@@ -14,6 +14,16 @@
 
 <br />
 
+# I just started this! 🚼
+
+My goal is to provide a collection of practical and concise examples that showcase the different capabilities of Remix.
+
+This started as a list for myself to summarize what I've learned. Over time, I'll be adding more content and increasing the specificity of the examples as I continue to learn and explore.
+
+If that sounds interesting to you, please consider starring the repo and joining the discussions! ⭐️
+
+<br />
+
 # Data Fetching
 
 ## Server-Sent Events (SSE)
