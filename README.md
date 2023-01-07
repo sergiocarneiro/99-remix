@@ -44,7 +44,7 @@ Remove client-side scripts from static pages with [useShouldHydrate](https://git
 > Third-party scripts can still be loaded using [ExternalScripts](https://github.com/sergiodxa/remix-utils#externalscripts).
 
 <details>
-  <summary><a>How-to</a></summary>
+  <summary>How-to</summary>
 
 <h3>root.tsx</h3>
 
@@ -52,32 +52,32 @@ Remove client-side scripts from static pages with [useShouldHydrate](https://git
 
 	export function Document({ children })
 	{
-		let shouldHydrate = useShouldHydrate();
+	  let shouldHydrate = useShouldHydrate();
 
-		return (
-			...
-			<body>
-				{children}
-				<ScrollRestoration />
-				<ExternalScripts />
-				{shouldHydrate && <Scripts />}
-				<LiveReload />
-			</body>
-		);
+	  return (
+	    ...
+	    <body>
+	      {children}
+	      <ScrollRestoration />
+	      <ExternalScripts />
+	      {shouldHydrate && <Scripts />}
+	      <LiveReload />
+	    </body>
+	  );
 	}
 
 <h3>routes/<i>some-path</i>.tsx</h3>
 
 	// A. Static
 	export const handle = {
-		hydrate: false
+	  hydrate: false
 	};
 
 	// B. Conditional
 	export const handle = {
-		hydrate: (data: LoaderData) => {
-			// ...
-		}
+	  hydrate: (data: LoaderData) => {
+	    // ...
+	  }
 	};
 </details>
 
@@ -93,88 +93,92 @@ Classic server endpoints that render no component.
 ## Content Generation
 Generate all sorts of content based on data.
 
-### Image
-For content delivery, processing, etc.
 <details>
-  <summary><a>How-to</a></summary>
+  <summary>Types</summary>
 
-	export async function loader({ params }: LoaderArgs) {
-		const { content, format } = await getImage(params.path);
-		return new Response(content, {
-			status: 200,
-			headers: {
-				"Content-Type": `image/${format}`,
-			},
-		});
-	}
-</details>
+  ### Image
+  For content delivery, processing, etc.
+  <details>
+    <summary>How-to</summary>
 
-### PDF
-For reports, invoices, etc.
-<details>
-  <summary><a>How-to</a></summary>
+    export async function loader({ params }: LoaderArgs) {
+      const { content, format } = await getImage(params.path);
+      return new Response(content, {
+        status: 200,
+        headers: {
+          "Content-Type": `image/${format}`,
+        },
+      });
+    }
+  </details>
 
-	export async function loader({ params }: LoaderArgs) {
-		const report = await getReport(params.id);
-		const pdf = await generateReportPDF(report);
-		return new Response(pdf, {
-			status: 200,
-			headers: {
-				"Content-Type": "application/pdf",
-			},
-		});
-	}
-</details>
+  ### PDF
+  For reports, invoices, etc.
+  <details>
+    <summary>How-to</summary>
 
-### HTML
-To provide markup in API endpoints, for widgets and other integrations.
-<details>
-  <summary><a>How-to</a></summary>
+    export async function loader({ params }: LoaderArgs) {
+      const report = await getReport(params.id);
+      const pdf = await generateReportPDF(report);
+      return new Response(pdf, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/pdf",
+        },
+      });
+    }
+  </details>
 
-	export async function loader({ params }: LoaderArgs) {
-		const user = await getUser(params.id);
-		const { template } = await generateWidget(user);
-		return new Response(script, {
-			status: 200,
-			headers: {
-				"Content-Type": "text/html",
-			},
-		});
-	}
-</details>
+  ### HTML
+  To provide markup in API endpoints, for widgets and other integrations.
+  <details>
+    <summary>How-to</summary>
 
-### CSS
-To provide styles in API endpoints, for widgets and other integrations.
-<details>
-  <summary><a>How-to</a></summary>
+    export async function loader({ params }: LoaderArgs) {
+      const user = await getUser(params.id);
+      const { template } = await generateWidget(user);
+      return new Response(script, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/html",
+        },
+      });
+    }
+  </details>
 
-	export async function loader({ params }: LoaderArgs) {
-		const user = await getUser(params.id);
-		const { styles } = await generateWidget(user);
-		return new Response(script, {
-			status: 200,
-			headers: {
-				"Content-Type": "text/css",
-			},
-		});
-	}
-</details>
+  ### CSS
+  To provide styles in API endpoints, for widgets and other integrations.
+  <details>
+    <summary>How-to</summary>
 
-### Javascript
-To provide scripts in API endpoints, for widgets and other integrations.
-<details>
-  <summary><a>How-to</a></summary>
+    export async function loader({ params }: LoaderArgs) {
+      const user = await getUser(params.id);
+      const { styles } = await generateWidget(user);
+      return new Response(script, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/css",
+        },
+      });
+    }
+  </details>
 
-	export async function loader({ params }: LoaderArgs) {
-		const user = await getUser(params.id);
-		const { script } = await generateWidget(user);
-		return new Response(script, {
-			status: 200,
-			headers: {
-				"Content-Type": "application/javascript",
-			},
-		});
-	}
+  ### Javascript
+  To provide scripts in API endpoints, for widgets and other integrations.
+  <details>
+    <summary>How-to</summary>
+
+    export async function loader({ params }: LoaderArgs) {
+      const user = await getUser(params.id);
+      const { script } = await generateWidget(user);
+      return new Response(script, {
+        status: 200,
+        headers: {
+          "Content-Type": "application/javascript",
+        },
+      });
+    }
+  </details>
 </details>
 
 ## Webhooks
