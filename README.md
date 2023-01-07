@@ -6,6 +6,7 @@
 
 <p align="center">
 	<a href="#data-fetching">Data Fetching</a>&nbsp;&nbsp;&nbsp;
+	<a href="#resource-routes">Resource Routes</a>&nbsp;&nbsp;&nbsp;
 	<a href="#type-safety">Type Safety</a>
 </p>
 
@@ -22,9 +23,21 @@ The client just needs to subscribe to an *event source* through a hook that link
 
 <br />
 
+# Resource Routes
+Classic server endpoints that render no component.
+<p>
+	<a href="https://remix.run/docs/en/v1/guides/resource-routes#handling-different-request-methods">How-to</a>&nbsp;&nbsp;&nbsp;
+	<a href="https://remix.run/docs/en/v1/guides/resource-routes">Docs</a>
+</p>
+
+
+
+<br />
+
 # Type Safety
 
 ## Cookies
-You can make cookies fully type-safe using a [zod](https://zod.dev) schema.
-
-* **How-to** — [github.com/sergiodxa/remix-utils/#typed-cookies](https://github.com/sergiodxa/remix-utils/#typed-cookies)
+You can make cookies fully type-safe using a [Zod](https://zod.dev) schema.
+<p>
+	<a href="https://github.com/sergiodxa/remix-utils/#typed-cookies">How-to</a>
+</p>
