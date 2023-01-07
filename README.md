@@ -17,9 +17,11 @@
 ## Server-Sent Events (SSE)
 Send data from the server without the client requesting it.
 
-The client just needs to subscribe to an *event source* through a hook that links to a *resource route*.
+Components just need to subscribe to an *event source* using a *hook* that links to a *resource route*.
 
-* **How-to** — [github.com/sergiodxa/remix-utils/#server-sent-events](https://github.com/sergiodxa/remix-utils/#server-sent-events)
+<p>
+	<a href="https://github.com/sergiodxa/remix-utils/#server-sent-events">How-to</a>
+</p>
 
 <br />
 
