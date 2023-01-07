@@ -32,7 +32,11 @@ Classic server endpoints that render no component.
 	<a href="https://remix.run/docs/en/v1/guides/resource-routes">Docs</a>
 </p>
 
-
+## Webhooks
+External services can send data to resource routes.
+<p>
+	<a href="https://remix.run/docs/en/v1/guides/resource-routes#webhooks">How-to</a>
+</p>
 
 <br />
 
