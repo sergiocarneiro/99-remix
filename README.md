@@ -23,3 +23,8 @@ The client just needs to subscribe to an *event source* through a hook that link
 <br />
 
 # Type Safety
+
+## Cookies
+You can make cookies fully type-safe using a [zod](https://zod.dev) schema.
+
+* **How-to** — [github.com/sergiodxa/remix-utils/#typed-cookies](https://github.com/sergiodxa/remix-utils/#typed-cookies)
