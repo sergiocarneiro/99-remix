@@ -90,6 +90,93 @@ Classic server endpoints that render no component.
 	<a href="https://remix.run/docs/en/v1/guides/resource-routes">Docs</a>
 </p>
 
+## Content Generation
+Generate all sorts of content based on data.
+
+### Image
+For content delivery, processing, etc.
+<details>
+  <summary><a>How-to</a></summary>
+
+	export async function loader({ params }: LoaderArgs) {
+		const { content, format } = await getImage(params.path);
+		return new Response(content, {
+			status: 200,
+			headers: {
+				"Content-Type": `image/${format}`,
+			},
+		});
+	}
+</details>
+
+### PDF
+For reports, invoices, etc.
+<details>
+  <summary><a>How-to</a></summary>
+
+	export async function loader({ params }: LoaderArgs) {
+		const report = await getReport(params.id);
+		const pdf = await generateReportPDF(report);
+		return new Response(pdf, {
+			status: 200,
+			headers: {
+				"Content-Type": "application/pdf",
+			},
+		});
+	}
+</details>
+
+### HTML
+To provide markup in API endpoints, for widgets and other integrations.
+<details>
+  <summary><a>How-to</a></summary>
+
+	export async function loader({ params }: LoaderArgs) {
+		const user = await getUser(params.id);
+		const { template } = await generateWidget(user);
+		return new Response(script, {
+			status: 200,
+			headers: {
+				"Content-Type": "text/html",
+			},
+		});
+	}
+</details>
+
+### CSS
+To provide styles in API endpoints, for widgets and other integrations.
+<details>
+  <summary><a>How-to</a></summary>
+
+	export async function loader({ params }: LoaderArgs) {
+		const user = await getUser(params.id);
+		const { styles } = await generateWidget(user);
+		return new Response(script, {
+			status: 200,
+			headers: {
+				"Content-Type": "text/css",
+			},
+		});
+	}
+</details>
+
+### Javascript
+To provide scripts in API endpoints, for widgets and other integrations.
+<details>
+  <summary><a>How-to</a></summary>
+
+	export async function loader({ params }: LoaderArgs) {
+		const user = await getUser(params.id);
+		const { script } = await generateWidget(user);
+		return new Response(script, {
+			status: 200,
+			headers: {
+				"Content-Type": "application/javascript",
+			},
+		});
+	}
+</details>
+
 ## Webhooks
 External services can send data to resource routes.
 <p>
