@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="styles.css">
+
 <div align="center">
 	<b>😎 Extensive list of awesome things you can do with <a href="https://remix.run">Remix 💿</a></b>
 </div>
@@ -43,7 +45,7 @@ External services can send data to resource routes.
 # Type Safety
 
 ## Cookies
-You can make cookies fully type-safe using a [Zod](https://zod.dev) schema.
+Make cookies fully type-safe using a [Zod](https://zod.dev) schema.
 <p>
 	<a href="https://github.com/sergiodxa/remix-utils/#typed-cookies">How-to</a>
 </p>

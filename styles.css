@@ -1,0 +1,14 @@
+details::before {
+  content: "";
+  display: none;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--color-accent-fg);
+  text-decoration: none;
+}
+
+summary:hover {
+  text-decoration: underline;
+}
