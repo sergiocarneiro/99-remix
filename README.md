@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="styles.css">
-
 <div align="center">
 	<b>😎 Extensive list of awesome things you can do with <a href="https://remix.run">Remix 💿</a></b>
 </div>
@@ -45,8 +43,8 @@ Remove client-side scripts from static pages with [useShouldHydrate](https://git
 
 > Third-party scripts can still be loaded using [ExternalScripts](https://github.com/sergiodxa/remix-utils#externalscripts).
 
-<details open>
-  <summary>How-to</summary>
+<details>
+  <summary><a>How-to</a></summary>
 
 <h3>root.tsx</h3>
 
