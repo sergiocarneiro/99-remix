@@ -8,6 +8,7 @@
 
 <p align="center">
 	<a href="#data-fetching">Data Fetching</a>&nbsp;&nbsp;&nbsp;
+	<a href="#rendering">Rendering</a>&nbsp;&nbsp;&nbsp;
 	<a href="#resource-routes">Resource Routes</a>&nbsp;&nbsp;&nbsp;
 	<a href="#type-safety">Type Safety</a>
 </p>
@@ -34,6 +35,53 @@ Components just need to subscribe to an *event source* using a *hook* that links
 <p>
 	<a href="https://github.com/sergiodxa/remix-utils/#server-sent-events">How-to</a>
 </p>
+
+<br />
+
+# Rendering
+
+## Static Routes
+Remove client-side scripts from static pages with [useShouldHydrate](https://github.com/sergiodxa/remix-utils#useshouldhydrate) from remix-utils.
+
+> Third-party scripts can still be loaded using [ExternalScripts](https://github.com/sergiodxa/remix-utils#externalscripts).
+
+<details open>
+  <summary>How-to</summary>
+
+<h3>root.tsx</h3>
+
+	import { useShouldHydrate } from "remix-utils";
+
+	export function Document({ children })
+	{
+		let shouldHydrate = useShouldHydrate();
+
+		return (
+			...
+			<body>
+				{children}
+				<ScrollRestoration />
+				<ExternalScripts />
+				{shouldHydrate && <Scripts />}
+				<LiveReload />
+			</body>
+		);
+	}
+
+<h3>routes/<i>some-path</i>.tsx</h3>
+
+	// A. Static
+	export const handle = {
+		hydrate: false
+	};
+
+	// B. Conditional
+	export const handle = {
+		hydrate: (data: LoaderData) => {
+			// ...
+		}
+	};
+</details>
 
 <br />
 
